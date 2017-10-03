@@ -7,13 +7,23 @@
       .speak{
         background-color: yellow;
       }
+
+      .description{
+        padding-left: 1em;
+        font-style: italic;
+      }
     </style>
 
     <script type="text/javascript">
       function say(message){
         let utterance = new SpeechSynthesisUtterance(message);
+
         let rateValue = localStorage['speech-rate'] || 1;
         utterance.rate = rateValue;
+
+        let pitchValue = localStorage['speech-pitch'] || 1;
+        utterance.pitch = pitchValue;
+
         window.speechSynthesis.speak(utterance);
       }
 
@@ -40,7 +50,7 @@
             accesskey="t"><u>T</u>alk</button>
 
     <p class="speak">Hey Alexa, Good Morning!</p>
-    <p>Alexa will respond with an interesting factoid or a "today in history" story.</p>
+    <p class="description">Alexa will respond with an interesting factoid or a "today in history" story.</p>
 
   </body>
 </html>
