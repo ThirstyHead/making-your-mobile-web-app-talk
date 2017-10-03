@@ -12,14 +12,23 @@
     <script type="text/javascript">
       function say(message){
         let utterance = new SpeechSynthesisUtterance(message);
+        let rateValue = localStorage['speech-rate'] || 1;
+        utterance.rate = rateValue;
         window.speechSynthesis.speak(utterance);
       }
 
-      function init(){
+      function readDocument() {
         let thingsToSay = document.querySelectorAll('.speak');
         thingsToSay.forEach( it => {
           say(it.innerText);
         });
+      }
+
+      function init(){
+        let talkButton = document.querySelector('#talk-button');
+        talkButton.onclick = readDocument;
+
+        readDocument();
       }
 
       window.onload = init;
@@ -27,6 +36,9 @@
 
   </head>
   <body>
+    <button id="talk-button"
+            accesskey="t"><u>T</u>alk</button>
+
     <p class="speak">Hey Alexa, Good Morning!</p>
     <p>Alexa will respond with an interesting factoid or a "today in history" story.</p>
 
