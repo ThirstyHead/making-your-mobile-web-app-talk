@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Let's Talk</title>
+    <style media="screen">
+      .speak{
+        background-color: yellow;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function say(message){
+        let utterance = new SpeechSynthesisUtterance(message);
+        window.speechSynthesis.speak(utterance);
+      }
+
+      function init(){
+        let thingsToSay = document.querySelectorAll('.speak');
+        thingsToSay.forEach( it => {
+          say(it.innerText);
+        });
+      }
+
+      window.onload = init;
+    </script>
+
+  </head>
+  <body>
+    <p class="speak">Hey Alexa, Good Morning!</p>
+    <p>Alexa will respond with an interesting factoid or a "today in history" story.</p>
+
+  </body>
+</html>
