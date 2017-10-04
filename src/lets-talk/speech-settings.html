@@ -6,6 +6,8 @@
   </head>
 
   <script type="text/javascript">
+    let voices = undefined;
+
     function rateHandler(){
       let rateField = document.querySelector('#rate');
       let rateOuput = document.querySelector('#rate-output');
@@ -19,7 +21,6 @@
       pitchOuput.innerText = pitchField.valueAsNumber;
       localStorage['speech-pitch'] = pitchField.valueAsNumber;
     }
-
 
     function loadSettings(){
       let rateField = document.querySelector('#rate');
@@ -35,7 +36,20 @@
       pitchOuput.innerText = pitchField.valueAsNumber;
     }
 
+    function loadVoices(){
+      window.speechSynthesis.onvoiceschanged = function(){
+        voices = speechSynthesis.getVoices();
+        // console.dir(voices);
+
+        let voiceField = document.querySelector('#voice');
+        voices.forEach( (voice) => {
+          // let option = 
+        })
+      }
+    }
+
     function init(){
+      loadVoices();
       loadSettings();
 
       let rateField = document.querySelector('#rate');
@@ -52,7 +66,7 @@
 
     <form>
       <fieldset>
-        <legend>Voice</legend>
+        <legend>Voice Settings</legend>
 
         <p>
           <!-- NOTE: valid range is a float, [0.1 .. 10] -->
@@ -82,6 +96,13 @@
           <output name="pitch-output"
                   id="pitch-output"
                   for="pitch">1</output>
+        </p>
+
+        <p>
+          <label for="voice">Voice</label>
+          <select name="voice" id="voice">
+
+          </select>
         </p>
 
 
