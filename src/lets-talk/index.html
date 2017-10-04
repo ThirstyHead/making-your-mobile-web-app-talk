@@ -15,6 +15,8 @@
     </style>
 
     <script type="text/javascript">
+      let voices = undefined;
+
       function say(message){
         let utterance = new SpeechSynthesisUtterance(message);
 
@@ -23,6 +25,12 @@
 
         let pitchValue = localStorage['speech-pitch'] || 1;
         utterance.pitch = pitchValue;
+
+        let voiceValue = localStorage['speech-voice'];
+        let voice = voices.filter( (voice) => {
+          return voice.name === voiceValue;
+        })[0];
+        utterance.voice = voice;
 
         window.speechSynthesis.speak(utterance);
       }
@@ -35,10 +43,12 @@
       }
 
       function init(){
+        window.speechSynthesis.onvoiceschanged = function(){
+          voices = speechSynthesis.getVoices();
+        }
+
         let talkButton = document.querySelector('#talk-button');
         talkButton.onclick = readDocument;
-
-        readDocument();
       }
 
       window.onload = init;

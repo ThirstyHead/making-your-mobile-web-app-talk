@@ -7,6 +7,7 @@
 
   <script type="text/javascript">
     let voices = undefined;
+    let defaultVoice = undefined;
 
     function rateHandler(){
       let rateField = document.querySelector('#rate');
@@ -20,6 +21,12 @@
       let pitchOuput = document.querySelector('#pitch-output');
       pitchOuput.innerText = pitchField.valueAsNumber;
       localStorage['speech-pitch'] = pitchField.valueAsNumber;
+    }
+
+    function voiceHandler(){
+      let voiceField = document.querySelector('#voice');
+      let selected = voiceField.selectedOptions[0].attributes['data-name'].value;
+      localStorage['speech-voice'] = selected;
     }
 
     function loadSettings(){
@@ -41,9 +48,24 @@
         voices = speechSynthesis.getVoices();
         // console.dir(voices);
 
+        defaultVoice = voices.filter( (voice) => {
+          return voice.default === true;
+        })[0].name;
+
+        let voiceValue = localStorage['speech-voice'] || defaultVoice;
+
         let voiceField = document.querySelector('#voice');
-        voices.forEach( (voice) => {
-          // let option = 
+        voiceField.innerHTML = '';
+        voices.forEach( (voice, i) => {
+          let option = document.createElement('option');
+          option.textContent = `${voice.name} (${voice.lang})`;
+          option.setAttribute('data-name', voice.name);
+          option.setAttribute('data-lang', voice.lang);
+          voiceField.add(option);
+
+          if(voice.name === voiceValue){
+            voiceField.selectedIndex = i;
+          }
         })
       }
     }
@@ -57,6 +79,9 @@
 
       let pitchField = document.querySelector('#pitch');
       pitchField.onchange = pitchHandler;
+
+      let voiceField = document.querySelector('#voice');
+      voiceField.onchange = voiceHandler;
     }
 
     window.onload = init;
