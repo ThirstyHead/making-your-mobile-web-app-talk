@@ -1,0 +1,21 @@
+{
+  "name": "making-your-mobile-web-app-talk",
+  "version": "0.1.0",
+  "homepage": "https://github.com/ThirstyHead/making-your-mobile-web-app-talk",
+  "authors": [
+    "Scott Davis <scott@thirstyhead.com>"
+  ],
+  "description": "PRESENTATION: Making Your Mobile Web App Talk",
+  "main": "index.html",
+  "license": "cc-by-4.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "talk-o-vision": "thirstyhead/talk-o-vision#^0.4.0"
+  }
+}

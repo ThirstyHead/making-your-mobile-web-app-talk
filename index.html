@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Making Your Mobile Web App Talk</title>
@@ -9,8 +9,23 @@
         background: url('slides/title/img/talk.jpg') no-repeat center center;
         background-size: contain;
       }
+
+      /* Speech Synthesis */
+      button{
+        font-size: 2em;
+      }
+
+      code{
+        font-size: 1rem;
+      }
     </style>
 
+    <script type="text/javascript">
+      function sayHello(){
+        var msg = new SpeechSynthesisUtterance('Hello World');
+        window.speechSynthesis.speak(msg);
+      }
+    </script>
 
   </head>
   <body>
@@ -34,10 +49,199 @@
              class="full-height">
       </li>
 
+      <li class="bg-white">
+        <img src="slides/gartner-voice-ui/img/gartner-voice-ui.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li>
+        <img src="slides/mobile-vs-desktop/img/amazon-echo-dot-google.jpg"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li>
+        <img src="slides/apple-watch/img/apple-watch.jpg"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/voice/img/amazon-dash.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/web-browsers/img/web-browsers.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li class="bg-white">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API">
+        <img src="slides/web-speech-api/img/mdn-web-speech-api.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
 
 
 
 
+
+
+
+      <!-- Speech Recognition -->
+      <li>
+        <h2 class="section-title highlight">Speech Recognition</h2>
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/siri/img/siri-home.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/siri/img/light-bulb.jpg"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li class="bg-white">
+        <a href="https://techcrunch.com/2016/03/23/google-opens-access-to-its-speech-recognition-api-going-head-to-head-with-nuance/">
+        <img src="slides/google-speech/img/google-speech-recognition-techcrunch.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li>
+        <a href="http://caniuse.com/#feat=speech-recognition">
+        <img src="slides/web-speech-api/img/caniuse-speech-recognition-api.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li class="bg-white">
+        <a href="https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API">
+        <img src="slides/google-speech/img/web-speech-recognition-google.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li>
+        <h2>Live Speech-to-Text Demo</h2>
+        <a href="https://www.google.com/intl/en/chrome/demos/speech.html"><span class="highlight">https://www.google.com/intl/en/<br>chrome/demos/speech.html</span></a>
+      </li>
+
+      <li class="bg-white">
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API">
+        <img src="slides/web-speech-api/img/mdn-web-speech-api-github.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+
+      <!-- Speech Recognition -->
+      <li>
+        <h2 class="section-title highlight">Speech Synthesis</h2>
+      </li>
+
+      <li class="">
+        <p>&nbsp;</p>
+        <pre><code>
+let msg = new SpeechSynthesisUtterance('Hello World');
+window.speechSynthesis.speak(msg);
+        </code></pre>
+
+        <button onclick="sayHello()">Say Hello</button>
+      </li>
+
+      <li class="bg-white">
+        <a href="http://caniuse.com/#feat=speech-synthesis">
+        <img src="slides/web-speech-api/img/caniuse-speech-synthesis-api.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li class="bg-white">
+        <a href="https://github.com/ThirstyHead/web-speech">
+        <img src="slides/thirstyhead-web-speech/img/thirstyhead-web-speech.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li>
+        &nbsp;
+      </li>
+
+
+
+
+
+
+
+
+      <!-- Conclusion -->
+      <li>
+        <h2 class="section-title highlight">Conclusion</h2>
+      </li>
+
+      <li class="bg-white">
+        <img src="slides/gartner-voice-ui/img/gartner-voice-ui.png"
+             alt=""
+             class="full-height">
+      </li>
+
+      <li>
+        <a href="http://caniuse.com/#feat=speech-recognition">
+        <img src="slides/web-speech-api/img/caniuse-speech-recognition-api.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li class="bg-white">
+        <a href="http://caniuse.com/#feat=speech-synthesis">
+        <img src="slides/web-speech-api/img/caniuse-speech-synthesis-api.png"
+             alt=""
+             class="full-height">
+        </a>
+      </li>
+
+      <li class="title-slide">
+          <div class="banner">
+            <div class="banner-title">
+              <h1>Making Your Mobile Web App Talk</h1>
+            </div>
+            <div class="banner-bio">
+              Scott Davis <br>
+              <a href="mailto:sdavis@thoughtworks.com">sdavis@thoughtworks.com</a> <br>
+              <a href="https://twitter.com/scottdavis99?lang=en">@scottdavis99</a>
+            </div>
+          </div>
+      </li>
     </ol>
 
 
